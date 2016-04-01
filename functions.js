@@ -7,19 +7,73 @@
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function checkData(inputString) {
-	// your code goes here
-}
+    // created an if statment the checks if the input is a string
+    if(typeof inputString !== 'string') {
+        throw Error('Input is must be a string');
+        // returned false if input is not a string
+    }
+    if(inputString.length === 3) {
+        return true;
+        // return true if length is === 3.
+    }
+    else {
+        return false;
+        // anything else return false.
+    }
+
+};
+
+
+
+
+//  	function getMonth(integer) {
+//    if (typeof integer !== 'number') {
+//        throw 'Invalid Input: argument must be a number';
+//    }
+//    if (integer > 12 || integer < 1) {
+//        throw 'Invalid Input: number can not be higher than 12 or less than 1';
+//    }
+//    var month = integer;
+//    var months = {
+//        1: 'January',
+//        2: 'February',
+//        3: 'March',
+//        4: 'April',
+//        5: 'May',
+//        6: 'June',
+//        7: 'July',
+//        8: 'August',
+//        9: 'September',
+//        10: 'October',
+//        11: 'November',
+//        12: 'December'
+//    }
+//    return months[month];
+// }
+
 
 /*
- * PROBLEM `concatenateArrays`: (normal)
- * Write a function that, given two arrays of integers a and b, returns an array
- * that is formed by the elements of a followed by the elements of b.
- *
- * If the input is invalid throw an 'Invalid Input' exception.
- */
+* PROBLEM `concatenateArrays`: (normal)
+* Write a function that, given two arrays of integers a and b, returns an array
+* that is formed by the elements of a followed by the elements of b.
+*
+* If the input is invalid throw an 'Invalid Input' exception.
+ *For each argument include the type of data (string, number, boolean, array, object) that it should be, one example valid value that could be passed in to that argument and what should be returned if that valid value was passed in.
+*/
+// data type is an array
+// valid input is Array
+// should return two array inputs combined into one
 function concatenateArrays(a, b) {
-	// your code goes here
-}
+    // Created the if statment to verify that the input is an array.
+    if(!Array.isArray(a) || !Array.isArray(b)) {
+        // Will throw error if input in invalid
+        throw new Error('Invalid Input');
+        }
+
+        if(Array.isArray(a) && Array.isArray(b)) {
+        return a.concat(b);
+        }
+};
 
 /*
  * PROBLEM `fixProperNoun`: (normal)
@@ -31,7 +85,14 @@ function concatenateArrays(a, b) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function fixProperNoun(noun) {
-	// your code goes here
+    // your code goes here
+    //the type of input getting passed in is not a string we are throwing 'Invalid Input'
+    if (typeof noun !== 'string') {
+       throw 'Invalid Input';
+   }
+   //this makes the first letter always be uppercase
+   var properNoun = noun.charAt(0).toUpperCase() + noun.slice(1);
+   return properNoun;
 }
 
 /*
@@ -42,7 +103,18 @@ function fixProperNoun(noun) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function sortLetters(inputString) {
-	// your code goes here
+    // your code goes here
+    if (typeof inputString !== 'string') {
+        throw 'Invalid Input';
+    }
+    var sorted = '';
+    var temp = [];
+    for (var i = 0; i < inputString.length; i++){
+        temp.push(inputString[i]);
+    }
+    temp = temp.sort();
+    sorted = temp.join('');
+    return sorted;
 }
 
 /*
@@ -53,8 +125,19 @@ function sortLetters(inputString) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function absVal(integer) {
-	// your code goes here
+	// Function to test if integer
+	function isInteger(number) {
+		return Math.round(number) === number;
+	}
+	 
+	// If integer is negative, multiply by -1 to make it positive
+	if (integer < 0) {
+		integer = integer * -1;
+	}
+	// Return the absolute value of integer
+	return integer;
 }
+
 
 /*
  * PROBLEM `myMin`: (normal)
@@ -64,6 +147,8 @@ function absVal(integer) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
+ 	// Inputs: A input that is valid will have 2 intergers, each as its own argument
+ 	
 /*
  * PROBLEM `myMax`: (normal) - Actual Interview Question
  * Write a function called `myMax` that takes an array of integers ans returns
@@ -85,6 +170,33 @@ function absVal(integer) {
  *
  * If the input is invalid throw an 'Invalid Input' exception.
  */
+
+ 	function getMonth(integer) {
+   if (typeof integer !== 'number') {
+       throw 'Invalid Input: argument must be a number';
+   }
+   if (integer > 12 || integer < 1) {
+       throw 'Invalid Input: number can not be higher than 12 or less than 1';
+   }
+   var month = integer;
+   var months = {
+       1: 'January',
+       2: 'February',
+       3: 'March',
+       4: 'April',
+       5: 'May',
+       6: 'June',
+       7: 'July',
+       8: 'August',
+       9: 'September',
+       10: 'October',
+       11: 'November',
+       12: 'December'
+   }
+   return months[month];
+}
+
+
 
 /*
  * PROBLEM `randomElement`: (normal)
